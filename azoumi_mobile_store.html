@@ -19,24 +19,24 @@
         <div class="nav-container">
             <div class="logo">معرض العزومي</div>
 
-<!--             <!-- زر القائمة المتنقلة -->
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-<!--                 ☰ <!-- أيقونة القائمة --> -->
-            </button>
+            <!-- زر القائمة المتنقلة -->
+            <!-- <button class="mobile-menu-toggle" onclick="toggleMobileMenu()"> -->
+                <!-- ☰ أيقونة القائمة -->
+            <!-- </button> -->
 
             <!-- القائمة المتنقلة -->
-            <div class="mobile-menu" id="mobileMenu">
+            <!-- <div class="mobile-menu" id="mobileMenu">
                 <ul>
                     <li><a href="#" onclick="scrollToSection('hero'); closeMenu()">الرئيسية</a></li>
                     <li><a href="#" onclick="scrollToSection('features'); closeMenu()">خدماتنا</a></li>
-                    <li><a href="#" onclick="scrollToSection('products'); closeMenu()">المنتجات</a></li>
+                    <li><a href="#" onclick="scrollToSection('products'); closeMenu()">المنتجات</a></li> -->
 
                     <!-- <li><a href="#" onclick="showProducts('all'); closeMenu()">الكتالوج</a></li>     -->
-                    <li><a href="#" onclick="scrollToSection('contact'); closeMenu()">تواصل معنا</a></li>
+                    <!-- <li><a href="#" onclick="scrollToSection('contact'); closeMenu()">تواصل معنا</a></li>
 
                 </ul>
-            </div>
- -->
+            </div> -->
+
             <!-- القائمة العادية للكمبيوتر -->
             <nav class="desktop-menu">
                 <ul class="nav-menu">
@@ -52,22 +52,15 @@
         </div>
     </header>
 
-<!--     <script>
+    <!-- <script>
         function toggleMobileMenu() {
             const menu = document.getElementById("mobileMenu");
             menu.classList.toggle("active");
         }
 
-        // function closeMenu() {
-        //     document.getElementById("mobileMenu").classList.remove("active");
-        // }
-        function scrollToSection(sectionId) {
-    closeMenu(); // أغلق القائمة أولاً
-    setTimeout(() => { // انتظر حتى ينفذ الإغلاق
-        const section = document.getElementById(sectionId);
-        if (section) section.scrollIntoView({ behavior: 'smooth' });
-    }, 10);
-}
+        function closeMenu() {
+            document.getElementById("mobileMenu").classList.remove("active");
+        }
 
         // إغلاق القائمة عند النقر خارجها
         document.addEventListener('click', function (event) {
