@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS.css">
+    <title>معرض العزومي للموبيليا</title>
+
+</head>
+
+<body>
+    <div class="floating-elements">
+        <div class="floating-element">🛋️</div>
+        <div class="floating-element">🛏️</div>
+        <div class="floating-element">🏠</div>
+    </div>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">معرض العزومي</div>
+
+            <!-- زر القائمة المتنقلة -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                ☰ <!-- أيقونة القائمة -->
+            </button>
+
+            <!-- القائمة المتنقلة -->
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="#" onclick="scrollToSection('hero'); closeMenu()">الرئيسية</a></li>
+                    <li><a href="#" onclick="scrollToSection('features'); closeMenu()">خدماتنا</a></li>
+                    <li><a href="#" onclick="scrollToSection('products'); closeMenu()">المنتجات</a></li>
+
+                    <!-- <li><a href="#" onclick="showProducts('all'); closeMenu()">الكتالوج</a></li>     -->
+                    <li><a href="#" onclick="scrollToSection('contact'); closeMenu()">تواصل معنا</a></li>
+
+                </ul>
+            </div>
+
+            <!-- القائمة العادية للكمبيوتر -->
+            <nav class="desktop-menu">
+                <ul class="nav-menu">
+                    <li onclick="scrollToSection('hero')">الرئيسية</li>
+                    <li onclick="scrollToSection('features')">خدماتنا</li>
+                    <li onclick="scrollToSection('products')">المنتجات</li>
+
+                    <!-- <li onclick="showProducts('all')" style="cursor: pointer;">الكتالوج</li>      -->
+                    <li onclick="scrollToSection('contact')">تواصل معنا</li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.classList.toggle("active");
+        }
+
+        function closeMenu() {
+            document.getElementById("mobileMenu").classList.remove("active");
+        }
+
+        // إغلاق القائمة عند النقر خارجها
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById("mobileMenu");
+            const toggleBtn = document.querySelector('.mobile-menu-toggle');
+
+            if (!menu.contains(event.target) && event.target !== toggleBtn) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>أفخم الموبيليا بأفضل الأسعار</h1>
+            <p>معرض العزومي - معرض متخصص في بيع أجود أنواع الموبيليا والأثاث</p>
+            <button class="cta-button" onclick="scrollToSection('products')">تصفح الموبيليا</button>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>لماذا معرض العزومي؟</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>جودة عالية</h3>
+                <p>جميع قطع الموبيليا من أجود الخامات والتصنيع المحلي والمستورد</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>أسعار منافسة</h3>
+                <p>نقدم أفضل الأسعار في السوق مع عروض وخصومات مميزة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛋️</div>
+                <h3>تشكيلة متنوعة</h3>
+                <p>نوفر جميع أنواع الموبيليا من غرف نوم وأنتريهات ومطابخ</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>توصيل وتركيب</h3>
+                <p>خدمة توصيل وتركيب احترافي لجميع قطع الموبيليا</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>منتجاتنا المميزة</h2>
+
+        <!-- Product Categories -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <button class="category-btn active" onclick="showProducts('all')">الكل</button>
+            <button class="category-btn" onclick="showProducts('sofas')">كنب</button>
+            <button class="category-btn" onclick="showProducts('wardrobes')">دواليب</button>
+            <button class="category-btn" onclick="showProducts('chairs')">كراسي</button>
+            <button class="category-btn" onclick="showProducts('kitchen')">مطابخ</button>
+
+            <!-- <button class="category-btn" onclick="showProducts('dressers')">سراحة</button> -->
+            <!-- <button class="category-btn" onclick="showProducts('dining')">سفرة</button>
+            <button class="category-btn" onclick="showProducts('tables')">ترابيزات</button> -->
+        </div>
+
+        <div class="products-grid" id="products-container">
+            <!-- كنب -->
+            <div class="product-card" data-category="sofas">
+                <div class="product-image"> <a href="./img-AL/IMG-20250813-WA0059.jpg"> <img
+                            src="./img-AL/IMG-20250813-WA0059.jpg" alt="كنب"></a></div>
+                <div class="product-info">
+                    <h3>كنبة مودرن</h3>
+                    <p>أنتريه 2 قطع بتصميم أنيق وخامات عالية</p>
+
+                    <div class="product-price">من 8,000 جنيه</div>
+                </div>
+            </div>
+            <div class="product-card" data-category="sofas">
+                <div class="product-image"> <a href="./img-AL/IMG-20250813-WA0056.jpg"> <img
+                            src="./img-AL/IMG-20250813-WA0056.jpg" alt="كنب"></a></div>
+                <div class="product-info">
+                    <h3>أنتريه فاخر</h3>
+                    <p> كنبة 1 قطع </p>
+                    <div class="product-price">من 15,000 جنيه</div>
+                </div>
+            </div>
+
+            <!-- دواليب -->
+            <div class="product-card" data-category="wardrobes">
+                <div class="product-image"><a href="./img-AL/IMG-20250813-WA0185.jpg"> <img
+                            src="./img-AL/IMG-20250813-WA0185.jpg" alt="دواليب"></a></div>
+                <div class="product-info">
+                    <h3>دولاب 3 ضلفة</h3>
+                    <p>دولاب خشب زان بمرآة ورفوف داخلية</p>
+                    <div class="product-price">من 5,500 جنيه</div>
+                </div>
+            </div>
+            <div class="product-card" data-category="wardrobes">
+                <div class="product-image"><a href="./img-AL/IMG-20250813-WA0063.jpg"> <img
+                            src="./img-AL/IMG-20250813-WA0063.jpg" alt="دواليب"></a></div>
+                <div class="product-info">
+                    <h3>دولاب 2 ضلفة</h3>
+                    <p>دولاب خشب زان بمرآة ورفوف داخلية</p>
+                    <div class="product-price">من 3,500 جنيه</div>
+                </div>
+            </div>
+
+            <!-- مطابخ -->
+            <div class="product-card" data-category="kitchen">
+                <div class="product-image"> <a href="./img-AL/IMG-20250813-WA0040.jpg"> <img
+                            src="./img-AL/IMG-20250813-WA0040.jpg" alt="مطابخ"></a> </div>
+                <div class="product-info">
+                    <h3>مطبخ أمريكاني</h3>
+                    <p>مطبخ بتصميم أمريكاني بأحدث الخامات</p>
+                    <div class="product-price">من 25,000 جنيه</div>
+                </div>
+            </div>
+            <div class="product-card" data-category="kitchen">
+                <div class="product-image"> <a href="./img-AL/IMG-20250813-WA0066.jpg"> <img
+                            src="./img-AL/IMG-20250813-WA0066.jpg" alt="مطابخ"></a> </div>
+                <div class="product-info">
+                    <h3>مطبخ كلاسيك</h3>
+                    <p>مطبخ بتصميم كلاسيكي راقي</p>
+                    <div class="product-price">من 30,000 جنيه</div>
+                </div>
+            </div>
+            <!-- كراسي -->
+            <!-- غير data-category من nightstands إلى chairs -->
+            <div class="product-card" data-category="chairs">
+                <div class="product-image">
+                    <img src="./img-AL/IMG-20250813-WA0054.jpg" alt="كراسي"
+                        onclick="window.open('./img-AL/IMG-20250813-WA0054.jpg', '_blank')" style="cursor: pointer;">
+                </div>
+                <div class="product-info">
+                    <h3>كرسي مودرن</h3>
+                    <p>كرسي بدرجين وتصميم عصري</p>
+                    <div class="product-price">من 600 جنيه</div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="chairs">
+                <div class="product-image">
+                    <img src="./img-AL/IMG-20250813-WA0051.jpg" alt="كراسي"
+                        onclick="window.open('./img-AL/IMG-20250813-WA0051.jpg', '_blank')" style="cursor: pointer;">
+                </div>
+                <div class="product-info">
+                    <h3>كرسي كلاسيك</h3> <!-- عدلت العنوان ليتناسب مع المحتوى -->
+                    <p>كرسي خشب بتصميم كلاسيكي</p>
+                    <div class="product-price">من 400 جنيه</div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>تواصل معنا</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>📍 العنوان</h3>
+                <p>الإسكندرية - معرض العزومي للموبيليا</p>
+            </div>
+            <div class="contact-item">
+                <h3>📞 الهاتف</h3>
+                <p>01xxxxxxxxx</p>
+            </div>
+            <div class="contact-item">
+                <h3>⏰ مواعيد العمل</h3>
+                <p>يومياً من 10 ص إلى 10 م</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add scroll animations
+        function handleScroll() {
+            const cards = document.querySelectorAll('.feature-card, .product-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.feature-card, .product-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+            });
+        });
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(45deg, rgba(139, 69, 19, 0.95), rgba(210, 105, 30, 0.95))';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(45deg, #8B4513, #D2691E)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add particle effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = '#D2691E';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '-10px';
+            particle.style.opacity = '0.7';
+
+            document.body.appendChild(particle);
+
+            const animation = particle.animate([
+                { transform: 'translateY(0px) rotate(0deg)', opacity: 0.7 },
+                { transform: `translateY(${window.innerHeight + 10}px) rotate(360deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'linear'
+            });
+
+            animation.onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Product filtering function
+        function showProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.category-btn');
+
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Show/hide products based on category
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                    product.style.opacity = '0';
+                    product.style.transform = 'translateY(50px)';
+
+                    setTimeout(() => {
+                        product.style.opacity = '1';
+                        product.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
