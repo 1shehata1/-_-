@@ -58,9 +58,16 @@
             menu.classList.toggle("active");
         }
 
-        function closeMenu() {
-            document.getElementById("mobileMenu").classList.remove("active");
-        }
+        // function closeMenu() {
+        //     document.getElementById("mobileMenu").classList.remove("active");
+        // }
+        function scrollToSection(sectionId) {
+    closeMenu(); // أغلق القائمة أولاً
+    setTimeout(() => { // انتظر حتى ينفذ الإغلاق
+        const section = document.getElementById(sectionId);
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }, 10);
+}
 
         // إغلاق القائمة عند النقر خارجها
         document.addEventListener('click', function (event) {
